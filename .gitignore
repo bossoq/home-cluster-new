@@ -1,0 +1,5 @@
+*.dec.yaml
+/key.txt
+*.bak
+charts/**/charts
+*.dec.*
