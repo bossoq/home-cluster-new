@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-client-provisioner
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: "{{ .Values.spec.destination.server }}"
+  source:
+    path: ""
+    repoURL: "https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts"
+    targetRevision: "4.6.0"
+    chart: csi-driver-nfs
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

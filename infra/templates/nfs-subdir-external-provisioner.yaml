@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: "{{ .Values.spec.destination.server }}"
+  source:
+    path: ""
+    repoURL: "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/"
+    targetRevision: "4.0.18"
+    chart: nfs-subdir-external-provisioner
+    helm:
+      parameters:
+        - name: nfs.server
+          value: "10.1.1.99"
+        - name: nfs.path
+          value: "/rpool/home-cluster"
+        - name: nfs.mountOptions[0]
+          value: "nfsvers=4"
+        - name: storageClass.accessModes
+          value: "ReadWriteMany"
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
