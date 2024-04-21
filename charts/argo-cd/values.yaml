@@ -148,7 +148,7 @@ argo-cd:
       labels: {}
       ingressClassName: ""
       hosts:
-        - argocd.picturo.us
+        - myargocd.picturo.us
       paths:
         - /
       pathType: Prefix
@@ -164,13 +164,13 @@ argo-cd:
       tls:
         - secretName: argocd-server-tls
           hosts:
-            - argocd.picturo.us
+            - myargocd.picturo.us
       https: false
 
     certificate:
       enabled: true
       secretName: argocd-server-tls
-      domain: argocd.picturo.us
+      domain: myargocd.picturo.us
       issuer:
         kind: ClusterIssuer
         name: letsencrypt-prod
