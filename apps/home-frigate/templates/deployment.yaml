@@ -31,6 +31,8 @@ spec:
                 name: home-frigate-secret
           - name: YOLO_MODELS
             value: yolov7-tiny-416
+          - name: USE_FP16
+            value: "false"
           securityContext:
             privileged: true
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
