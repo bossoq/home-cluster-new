@@ -18,7 +18,7 @@ argo-cd:
         url: https://charts.jetstack.io
       nvidia-helm-repo:
         type: helm
-        name: nvidia
+        name: nvidia-dp
         url: https://nvidia.github.io/k8s-device-plugin
       csi-driver-nfs-helm-repo:
         type: helm
