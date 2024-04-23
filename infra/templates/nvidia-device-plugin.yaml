@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-device-plugin
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: "{{ .Values.spec.destination.server }}"
+  source:
+    path: ""
+    repoURL: "https://nvidia.github.io/k8s-device-plugin"
+    targetRevision: "0.15.0"
+    chart: nvidia-device-plugin
+    # helm:
+    #   parameters:
+    #     - name: resourceManager
+    #       value: "true"
+    #     - name: sharedDevNum
+    #       value: "10"
+  project: infra
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

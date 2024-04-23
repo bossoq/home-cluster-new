@@ -19,7 +19,7 @@ argo-cd:
       nvidia-helm-repo:
         type: helm
         name: nvidia
-        url: https://helm.ngc.nvidia.com/nvidia
+        url: https://nvidia.github.io/k8s-device-plugin
       csi-driver-nfs-helm-repo:
         type: helm
         name: csi-driver-nfs
