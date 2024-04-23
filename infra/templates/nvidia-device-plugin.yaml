@@ -33,7 +33,7 @@ kind: ConfigMap
 metadata:
   name: time-slicing-config
 data:
-  any: |-
+  config: |-
     version: v1
     flags:
       runtimeClassName: nvidia
