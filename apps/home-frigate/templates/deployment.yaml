@@ -19,6 +19,7 @@ spec:
       labels:
         app: home-frigate
     spec:
+      runtimeClassName: nvidia
       containers:
         - env:
           - name: TZ
