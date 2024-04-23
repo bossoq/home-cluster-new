@@ -1,0 +1,4 @@
+image:
+  repository: linuxserver/jellyfin
+  tag: 10.8.13
+  pullPolicy: IfNotPresent
