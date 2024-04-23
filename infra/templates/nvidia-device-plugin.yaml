@@ -12,12 +12,13 @@ spec:
     repoURL: "https://nvidia.github.io/k8s-device-plugin"
     targetRevision: "0.15.0"
     chart: nvidia-device-plugin
-    # helm:
-    #   parameters:
-    #     - name: runtimeClassName
-    #       value: nvidia
-    #     - name: gfd.enabled
-    #       value: "true"
+    helm:
+      configMap: time-slicing-config
+      # parameters:
+      #   - name: runtimeClassName
+      #     value: nvidia
+      #   - name: gfd.enabled
+      #     value: "true"
   project: infra
   syncPolicy:
     automated:
@@ -25,17 +26,22 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  values: |
-    runtimeClassName: nvidia
-    gfd:
-      enabled: true
-      config:
-        any: |-
-          version: v1
-          sharing:
-            timeSlicing:
-              renameByDefault: false
-              failRequestsGreaterThanOne: false
-              resources:
-                - name: nvidia.com/gpu
-                  replicas: 16
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: time-slicing-config
+data:
+  any: |-
+    version: v1
+    flags:
+      runtimeClassName: nvidia
+      gfd:
+        enabled: true
+    sharing:
+      timeSlicing:
+        renameByDefault: false
+        failRequestsGreaterThanOne: false
+        resources:
+          - name: nvidia.com/gpu
+            replicas: 16
