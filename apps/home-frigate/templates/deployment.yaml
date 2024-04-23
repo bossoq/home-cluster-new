@@ -33,7 +33,9 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           name: frigate
-          resources: {}
+          resources:
+            limits:
+              nvidia.com/gpu: 1
           volumeMounts:
             - mountPath: /config
               name: home-frigate-config
@@ -59,3 +61,7 @@ spec:
             medium: Memory
             sizeLimit: 1Gi
       restartPolicy: Always
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
