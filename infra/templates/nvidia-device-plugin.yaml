@@ -13,8 +13,9 @@ spec:
     targetRevision: "0.15.0"
     chart: nvidia-device-plugin
     helm:
-      config: time-slicing-config
-      # parameters:
+      parameters:
+        - name: config.name
+          value: time-slicing-config
       #   - name: runtimeClassName
       #     value: nvidia
       #   - name: gfd.enabled
