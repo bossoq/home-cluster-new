@@ -16,6 +16,8 @@ spec:
       parameters:
         - name: runtimeClassName
           value: nvidia
+        - name: gfd.enabled
+          value: "true"
   project: infra
   syncPolicy:
     automated:
