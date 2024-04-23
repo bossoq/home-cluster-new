@@ -6,6 +6,7 @@ metadata:
     app: home-frigate
 spec:
   replicas: 1
+  runtimeClassName: nvidia
   strategy:
     rollingUpdate:
       maxSurge: 1
