@@ -16,10 +16,10 @@ spec:
       parameters:
         - name: config.name
           value: time-slicing-config
-      #   - name: runtimeClassName
-      #     value: nvidia
-      #   - name: gfd.enabled
-      #     value: "true"
+        - name: runtimeClassName
+          value: nvidia
+        - name: gfd.enabled
+          value: "true"
   project: infra
   syncPolicy:
     automated:
@@ -36,10 +36,6 @@ metadata:
 data:
   config: |-
     version: v1
-    flags:
-      runtimeClassName: nvidia
-      gfd:
-        enabled: true
     sharing:
       timeSlicing:
         renameByDefault: false
