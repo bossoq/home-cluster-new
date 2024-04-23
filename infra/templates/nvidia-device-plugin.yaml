@@ -12,12 +12,10 @@ spec:
     repoURL: "https://nvidia.github.io/k8s-device-plugin"
     targetRevision: "0.15.0"
     chart: nvidia-device-plugin
-    # helm:
-    #   parameters:
-    #     - name: resourceManager
-    #       value: "true"
-    #     - name: sharedDevNum
-    #       value: "10"
+    helm:
+      parameters:
+        - name: runtimeClassName
+          value: nvidia
   project: infra
   syncPolicy:
     automated:
