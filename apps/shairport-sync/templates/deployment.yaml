@@ -26,6 +26,7 @@ spec:
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           name: shairport-sync-bedroom
           resources: {}
+          hostNetwork: true
           volumeMounts:
             - mountPath: /etc/shairport-sync.conf
               name: shairport-sync-config-bedroom
@@ -38,6 +39,7 @@ spec:
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           name: shairport-sync-kitchen
           resources: {}
+          hostNetwork: true
           volumeMounts:
             - mountPath: /etc/shairport-sync.conf
               name: shairport-sync-config-kitchen
