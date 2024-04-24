@@ -1,0 +1,4 @@
+image:
+  repository: ghcr.io/linuxserver/transmission
+  tag: 4.0.5
+  pullPolicy: IfNotPresent

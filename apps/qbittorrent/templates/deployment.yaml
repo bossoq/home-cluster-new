@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  labels:
+    app: qbittorrent
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      containers:
+        - env:
+          - name: TZ
+            value: Asia/Bangkok
+          - name: PUID
+            value: "65534"
+          - name: PGID
+            value: "100"
+          - name: PEERPORT
+            value: "31500"
+          - name: USER
+            value: "admin"
+          - name: PASS
+            valueFrom:
+              secretKeyRef:
+                name: qbittorrent-secret
+                key: qbittorrent-password
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: qbittorrent
+          resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: qbittorrent-config
+            - mountPath: /downloads
+              name: qbittorrent-data
+            - mountPath: /watch
+              name: qbittorrent-watch
+      volumes:
+        - name: qbittorrent-config
+          persistentVolumeClaim:
+            claimName: qbittorrent-config
+        - name: qbittorrent-data
+          persistentVolumeClaim:
+            claimName: qbittorrent-data
+        - name: qbittorrent-watch
+          persistentVolumeClaim:
+            claimName: qbittorrent-watch
+      restartPolicy: Always
