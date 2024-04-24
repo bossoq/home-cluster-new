@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shairport-sync-config-bedroom
+spec:
+  storageClassName: ""
+  volumeName: shairport-sync-config-bedroom
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shairport-sync-config-kitchen
+spec:
+  storageClassName: ""
+  volumeName: shairport-sync-config-kitchen
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Mi

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shairport-sync-config-bedroom
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 10Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /rpool/home-cluster/shairport-sync/shairport-sync-bedroom
+    server: 10.1.1.99
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shairport-sync-config-kitchen
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 10Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /rpool/home-cluster/shairport-sync/shairport-sync-kitchen
+    server: 10.1.1.99
+    readOnly: false

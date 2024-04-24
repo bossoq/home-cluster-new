@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shairport-sync
+  labels:
+    app: shairport-sync
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: shairport-sync
+  template:
+    metadata:
+      labels:
+        app: shairport-sync
+    spec:
+      containers:
+        - securityContext:
+            privileged: true
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: shairport-sync-bedroom
+          resources: {}
+          volumeMounts:
+            - mountPath: /etc
+              name: shairport-sync-config-bedroom
+            - mountPath: /dev/snd
+              name: dev-snd
+        - securityContext:
+            privileged: true
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: shairport-sync-kitchen
+          resources: {}
+          volumeMounts:
+            - mountPath: /etc
+              name: shairport-sync-config-kitchen
+            - mountPath: /dev/snd
+              name: dev-snd
+      volumes:
+        - name: shairport-sync-config-bedroom
+          persistentVolumeClaim:
+            claimName: shairport-sync-config-bedroom
+        - name: shairport-sync-config-kitchen
+          persistentVolumeClaim:
+            claimName: shairport-sync-config-kitchen
+        - name: dev-snd
+          hostPath:
+            path: /dev/snd
+      restartPolicy: Always
