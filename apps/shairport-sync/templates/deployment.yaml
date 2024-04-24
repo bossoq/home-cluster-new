@@ -27,8 +27,9 @@ spec:
           name: shairport-sync-bedroom
           resources: {}
           volumeMounts:
-            - mountPath: /etc
+            - mountPath: /etc/shairport-sync.conf
               name: shairport-sync-config-bedroom
+              subPath: shairport-sync.conf
             - mountPath: /dev/snd
               name: dev-snd
         - securityContext:
@@ -38,8 +39,9 @@ spec:
           name: shairport-sync-kitchen
           resources: {}
           volumeMounts:
-            - mountPath: /etc
+            - mountPath: /etc/shairport-sync.conf
               name: shairport-sync-config-kitchen
+              subPath: shairport-sync.conf
             - mountPath: /dev/snd
               name: dev-snd
       volumes:
