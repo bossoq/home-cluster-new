@@ -32,7 +32,7 @@ spec:
           - name: YOLO_MODELS
             value: yolov7-tiny-416
           - name: USE_FP16
-            value: "false"
+            value: "true"
           securityContext:
             privileged: true
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
