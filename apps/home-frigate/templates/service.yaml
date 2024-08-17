@@ -8,7 +8,11 @@ spec:
   ports:
     - port: 5000
       targetPort: 5000
-      name: http-web
+      name: http-web-internal
+      protocol: TCP
+    - port: 8971
+      targetPort: 8971
+      name: http-web-external
       protocol: TCP
   type: ClusterIP
 ---
