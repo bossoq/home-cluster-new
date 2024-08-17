@@ -9,12 +9,12 @@ spec:
   tls:
     - secretName: home-frigate-internal-tls
       hosts:
-        - frigate-internal.picturo.us
+        - frigate.picturo.us
     - secretName: home-frigate-external-tls
       hosts:
-        - frigate.picturo.us
+        - frigate-ext.picturo.us
   rules:
-    - host: frigate-internal.picturo.us
+    - host: frigate.picturo.us
       http:
         paths:
           - path: /
@@ -24,7 +24,7 @@ spec:
                 name: home-frigate
                 port:
                   number: 5000
-    - host: frigate.picturo.us
+    - host: frigate-ext.picturo.us
       http:
         paths:
           - path: /
