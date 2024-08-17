@@ -7,11 +7,14 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
-    - secretName: home-frigate-tls
+    - secretName: home-frigate-internal-tls
+      hosts:
+        - frigate-internal.picturo.us
+    - secretName: home-frigate-external-tls
       hosts:
         - frigate.picturo.us
   rules:
-    - host: frigate.picturo.us
+    - host: frigate-internal.picturo.us
       http:
         paths:
           - path: /
@@ -21,3 +24,13 @@ spec:
                 name: home-frigate
                 port:
                   number: 5000
+    - host: frigate.picturo.us
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: home-frigate
+                port:
+                  number: 8971
