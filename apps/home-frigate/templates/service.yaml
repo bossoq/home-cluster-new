@@ -12,7 +12,7 @@ spec:
       protocol: TCP
     - port: 8971
       targetPort: 8971
-      name: http-web-external
+      name: https-web-external
       protocol: TCP
   type: ClusterIP
 ---
