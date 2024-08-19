@@ -34,3 +34,4 @@ spec:
                 name: home-frigate
                 port:
                   number: 8971
+            scheme: HTTPS
