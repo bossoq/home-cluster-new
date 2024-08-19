@@ -45,4 +45,5 @@ spec:
               service:
                 name: home-frigate
                 port:
+                  name: https-web-external
                   number: 8971
