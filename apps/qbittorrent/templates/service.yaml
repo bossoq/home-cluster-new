@@ -20,14 +20,14 @@ spec:
   selector:
     app: qbittorrent
   ports:
-    - port: 31500
-      targetPort: 31500
-      nodePort: 31500
+    - port: 6680
+      targetPort: 6680
+      nodePort: 6680
       name: inc-tcp
       protocol: TCP
-    - port: 31500
-      targetPort: 31500
-      nodePort: 31500
+    - port: 6680
+      targetPort: 6680
+      nodePort: 6680
       name: inc-udp
       protocol: UDP
   type: NodePort
