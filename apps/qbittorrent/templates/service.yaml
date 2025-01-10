@@ -23,6 +23,11 @@ spec:
     - port: 6680
       targetPort: 6680
       nodePort: 31500
-      name: inc
-      protocol: TCP+UDP
+      name: inc-udp
+      protocol: UDP
+    - port: 6680
+      targetPort: 6680
+      nodePort: 31500
+      name: inc-tcp
+      protocol: TCP
   type: NodePort
