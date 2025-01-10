@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: qbittorrent-nodeport-tcp
+  name: qbittorrent-nodeport
 spec:
   selector:
     app: qbittorrent
@@ -23,21 +23,6 @@ spec:
     - port: 6680
       targetPort: 6680
       nodePort: 31500
-      name: inc-tcp
-      protocol: TCP
-  type: NodePort
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: qbittorrent-nodeport-udp
-spec:
-  selector:
-    app: qbittorrent
-  ports:
-    - port: 6680
-      targetPort: 6680
-      nodePort: 31500
-      name: inc-udp
-      protocol: UDP
+      name: inc
+      protocol: TCP+UDP
   type: NodePort
