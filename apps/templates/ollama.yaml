@@ -33,6 +33,10 @@ spec:
           value: "/"
         - name: ingress.hosts[0].paths[0].pathType
           value: "Prefix"
+        - name: ingress.tls[0].secretName
+          value: "ollama-tls"
+        - name: ingress.tls[0].hosts[0]
+          value: "deepseek.picturo.us"
   syncPolicy:
     automated:
       prune: true
