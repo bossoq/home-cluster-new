@@ -37,6 +37,8 @@ spec:
           value: "ollama-tls"
         - name: ingress.tls[0].hosts[0]
           value: "deepseek.picturo.us"
+        - name: persistentVolume.enabled
+          value: "true"
   syncPolicy:
     automated:
       prune: true
