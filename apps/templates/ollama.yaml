@@ -17,20 +17,18 @@ spec:
       parameters:
         - name: ollama.gpu.enabled
           value: "true"
-        - name: ollama.models.pull
-          value:
-            - "deepseek-r1:8b"
-        - name: ollama.models.run
-          value:
-            - "deepseek-r1:8b"
+        - name: ollama.models.pull[0]
+          value: "deepseek-r1:8b"
+        - name: ollama.models.run[0]
+          value: "deepseek-r1:8b"
         - name: ingress.enabled
           value: "true"
-        - name: ingress.annotations
-          value:
-            - "kubernetes.io/ingress.class: traefik"
-            - "cert-manager.io/cluster-issuer: letsencrypt-prod"
+        - name: ingress.annotations[0].kubernetes\.io/ingress\.class
+          value: "traefik"
+        - name: ingress.annotations[1].cert-manager\.io/cluster-issuer
+          value: "letsencrypt-prod"
         - name: ingress.hosts.host
-          value: ["deepseek.picturo.us"]
+          value: "deepseek.picturo.us"
   syncPolicy:
     automated:
       prune: true
