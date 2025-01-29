@@ -29,6 +29,10 @@ spec:
           value: "letsencrypt-prod"
         - name: ingress.hosts[0].host
           value: "deepseek.picturo.us"
+        - name: ingress.hosts[0].paths[0].path
+          value: "/"
+        - name: ingress.hosts[0].paths[0].pathType
+          value: "Prefix"
   syncPolicy:
     automated:
       prune: true
