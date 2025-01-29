@@ -50,6 +50,22 @@ spec:
               name: dshm
             - mountPath: /tmp/cache
               name: cache
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            failureThreshold: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            failureThreshold: 5
+            timeoutSeconds: 10
       volumes:
         - name: home-frigate-config
           persistentVolumeClaim:
