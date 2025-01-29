@@ -18,9 +18,11 @@ spec:
         - name: ollama.gpu.enabled
           value: "true"
         - name: ollama.models.pull
-          value: ["deepseek-r1:8b"]
+          value:
+            - "deepseek-r1:8b"
         - name: ollama.models.run
-          value: ["deepseek-r1:8b"]
+          value:
+            - "deepseek-r1:8b"
         - name: ingress.enabled
           value: "true"
         - name: ingress.annotations
