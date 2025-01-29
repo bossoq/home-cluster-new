@@ -22,13 +22,13 @@ spec:
         # - name: ollama.models.pull[0]
         #   value: "deepseek-coder-v2:16b"
         - name: ollama.models.pull[0]
-          value: "qwen2.5-coder:3b"
+          value: "qwen2.5-coder:1.5b"
         # - name: ollama.models.run[0]
         #   value: "deepseek-r1:8b"
         # - name: ollama.models.run[0]
         #   value: "deepseek-coder-v2:16b"
         - name: ollama.models.run[0]
-          value: "qwen2.5-coder:3b"
+          value: "qwen2.5-coder:1.5b"
         - name: ingress.enabled
           value: "true"
         - name: ingress.annotations.kubernetes\.io/ingress\.class
