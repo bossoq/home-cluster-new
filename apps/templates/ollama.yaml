@@ -19,12 +19,16 @@ spec:
           value: "true"
         # - name: ollama.models.pull[0]
         #   value: "deepseek-r1:8b"
+        # - name: ollama.models.pull[0]
+        #   value: "deepseek-coder-v2:16b"
         - name: ollama.models.pull[0]
-          value: "deepseek-coder-v2:16b"
+          value: "qwen2.5-coder:7b"
         # - name: ollama.models.run[0]
         #   value: "deepseek-r1:8b"
+        # - name: ollama.models.run[0]
+        #   value: "deepseek-coder-v2:16b"
         - name: ollama.models.run[0]
-          value: "deepseek-coder-v2:16b"
+          value: "qwen2.5-coder:7b"
         - name: ingress.enabled
           value: "true"
         - name: ingress.annotations.kubernetes\.io/ingress\.class
