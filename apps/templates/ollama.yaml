@@ -27,7 +27,7 @@ spec:
           value: "traefik"
         - name: ingress.annotations[1].cert-manager\.io/cluster-issuer
           value: "letsencrypt-prod"
-        - name: ingress.hosts.host
+        - name: ingress.hosts[0].host
           value: "deepseek.picturo.us"
   syncPolicy:
     automated:
