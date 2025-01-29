@@ -28,6 +28,10 @@ argo-cd:
         type: helm
         name: nfs-subdir-external-provisioner
         url: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+      ollama-helm-repo:
+        type: helm
+        name: ollama
+        url: https://otwld.github.io/ollama-helm/
     cm:
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
