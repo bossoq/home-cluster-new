@@ -27,7 +27,7 @@ spec:
             value: "65534"
           - name: PGID
             value: "100"
-          - name: PEERPORT
+          - name: TORRENTING_PORT
             value: "6680"
           - name: USER
             value: "admin"
