@@ -1,58 +1,58 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: ollama
-  namespace: argocd
-spec:
-  destination:
-    namespace: argocd
-    server: "{{ .Values.spec.destination.server }}"
-  project: default
-  source:
-    path: ""
-    repoURL: "https://otwld.github.io/ollama-helm/"
-    targetRevision: "1.4.0"
-    chart: ollama
-    helm:
-      parameters:
-        - name: ollama.gpu.enabled
-          value: "true"
-        # - name: ollama.models.pull[0]
-        #   value: "deepseek-r1:8b"
-        # - name: ollama.models.pull[0]
-        #   value: "deepseek-coder-v2:16b"
-        - name: ollama.models.pull[0]
-          value: "hf.co/lmstudio-community/DeepSeek-Coder-V2-Lite-Instruct-GGUF:Q8_0"
-        # - name: ollama.models.run[0]
-        #   value: "deepseek-r1:8b"
-        # - name: ollama.models.run[0]
-        #   value: "deepseek-coder-v2:16b"
-        - name: ollama.models.run[0]
-          value: "hf.co/lmstudio-community/DeepSeek-Coder-V2-Lite-Instruct-GGUF:Q8_0"
-        - name: ingress.enabled
-          value: "true"
-        - name: ingress.annotations.kubernetes\.io/ingress\.class
-          value: "traefik"
-        - name: ingress.annotations.cert-manager\.io/cluster-issuer
-          value: "letsencrypt-prod"
-        - name: ingress.hosts[0].host
-          value: "deepseek.picturo.us"
-        - name: ingress.hosts[0].paths[0].path
-          value: "/"
-        - name: ingress.hosts[0].paths[0].pathType
-          value: "Prefix"
-        - name: ingress.tls[0].secretName
-          value: "ollama-tls"
-        - name: ingress.tls[0].hosts[0]
-          value: "deepseek.picturo.us"
-        - name: persistentVolume.enabled
-          value: "true"
-        - name: resources.limits.memory
-          value: "20Gi"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
----
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: ollama
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: argocd
+#     server: "{{ .Values.spec.destination.server }}"
+#   project: default
+#   source:
+#     path: ""
+#     repoURL: "https://otwld.github.io/ollama-helm/"
+#     targetRevision: "1.4.0"
+#     chart: ollama
+#     helm:
+#       parameters:
+#         - name: ollama.gpu.enabled
+#           value: "true"
+#         # - name: ollama.models.pull[0]
+#         #   value: "deepseek-r1:8b"
+#         # - name: ollama.models.pull[0]
+#         #   value: "deepseek-coder-v2:16b"
+#         - name: ollama.models.pull[0]
+#           value: "hf.co/lmstudio-community/DeepSeek-Coder-V2-Lite-Instruct-GGUF:Q8_0"
+#         # - name: ollama.models.run[0]
+#         #   value: "deepseek-r1:8b"
+#         # - name: ollama.models.run[0]
+#         #   value: "deepseek-coder-v2:16b"
+#         - name: ollama.models.run[0]
+#           value: "hf.co/lmstudio-community/DeepSeek-Coder-V2-Lite-Instruct-GGUF:Q8_0"
+#         - name: ingress.enabled
+#           value: "true"
+#         - name: ingress.annotations.kubernetes\.io/ingress\.class
+#           value: "traefik"
+#         - name: ingress.annotations.cert-manager\.io/cluster-issuer
+#           value: "letsencrypt-prod"
+#         - name: ingress.hosts[0].host
+#           value: "deepseek.picturo.us"
+#         - name: ingress.hosts[0].paths[0].path
+#           value: "/"
+#         - name: ingress.hosts[0].paths[0].pathType
+#           value: "Prefix"
+#         - name: ingress.tls[0].secretName
+#           value: "ollama-tls"
+#         - name: ingress.tls[0].hosts[0]
+#           value: "deepseek.picturo.us"
+#         - name: persistentVolume.enabled
+#           value: "true"
+#         - name: resources.limits.memory
+#           value: "20Gi"
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+# ---
