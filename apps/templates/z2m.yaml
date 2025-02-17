@@ -35,6 +35,8 @@ spec:
           value: "true"
         - name: statefulset.storage.storageClassName
           value: "nfs-client-provisioner"
+        - name: statefulset.spec.serviceName
+          value: "zigbee2mqtt"
         - name: zigbee2mqtt.advanced.last_seen
           value: "enable"
         - name: zigbee2mqtt.mqtt.server
