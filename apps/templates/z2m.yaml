@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: ""
-    repoURL: "https://charts.zigbee2mqtt.io/"
+    repoURL: "https://github.com/bossoq/zigbee2mqtt-chart/"
     targetRevision: "2.1.1"
     chart: zigbee2mqtt
     helm:
