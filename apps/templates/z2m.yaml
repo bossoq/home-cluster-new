@@ -33,6 +33,8 @@ spec:
           value: "zigbee2mqtt.picturo.us"
         - name: statefulset.storage.enabled
           value: "true"
+        - name: statefulset.storage.storageClassName
+          value: "nfs-client-provisioner"
         - name: zigbee2mqtt.advanced.last_seen
           value: "enable"
         - name: zigbee2mqtt.mqtt.server
