@@ -13,7 +13,7 @@ spec:
   source:
     path: "charts/zigbee2mqtt"
     repoURL: "https://github.com/bossoq/zigbee2mqtt-chart.git"
-    targetRevision: "2.1.1-patch1"
+    targetRevision: "HEAD"
     # chart: zigbee2mqtt
     helm:
       parameters:
