@@ -35,7 +35,7 @@ argo-cd:
       zigbee2mqtt-helm-repo:
         type: helm
         name: zigbee2mqtt
-        url: https://github.com/bossoq/zigbee2mqtt-chart/
+        url: https://charts.zigbee2mqtt.io/
     cm:
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
