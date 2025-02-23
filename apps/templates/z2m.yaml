@@ -11,10 +11,10 @@ spec:
     server: "{{ .Values.spec.destination.server }}"
   project: default
   source:
-    path: ""
-    repoURL: "https://charts.zigbee2mqtt.io/"
+    path: "charts/zigbee2mqtt"
+    repoURL: "https://github.com/bossoq/zigbee2mqtt-chart.git"
     targetRevision: "2.1.1-patch1"
-    chart: zigbee2mqtt
+    # chart: zigbee2mqtt
     helm:
       parameters:
         - name: ingress.enabled
