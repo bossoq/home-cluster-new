@@ -45,7 +45,7 @@ argo-cd:
 
   server:
     extraArgs:
-      - --insecure
+      - --insecure --disable-openapi-validation
     config:
       kustomize.buildOptions: "--enable-alpha-plugins"
       helm.valuesFileSchemes: >-
