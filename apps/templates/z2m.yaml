@@ -45,3 +45,10 @@ spec:
           value: "mqtt://10.1.3.1:1883"
         - name: zigbee2mqtt.timezone
           value: "Asia/Bangkok"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
