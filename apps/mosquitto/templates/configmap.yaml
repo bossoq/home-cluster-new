@@ -9,7 +9,6 @@ data:
     persistence_location /mosquitto/data/
     log_dest stdout
     
-    # MQTTS listener
-    listener 1883
+    # MQTT listener
     allow_anonymous true
-    protocol mqtt
+    listener 1883
