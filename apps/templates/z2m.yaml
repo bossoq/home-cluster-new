@@ -68,17 +68,3 @@ spec:
     path: /rpool/home-cluster/z2m-config
     server: 10.1.1.99
     readOnly: false
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: z2m-config
-spec:
-  storageClassName: "z2m-config"
-  volumeName: z2m-config
-  accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 1Gi
