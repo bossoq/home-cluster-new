@@ -63,7 +63,6 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /rpool/home-cluster/z2m-config
     server: 10.1.1.99
