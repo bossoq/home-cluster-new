@@ -23,8 +23,7 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: "{{ .Values.image.pullPolicy }}"
         ports:
-        - containerPort: 8883
-        - containerPort: 9001
+        - containerPort: 1883
         volumeMounts:
         - mountPath: /etc/mosquitto/
           name: config
