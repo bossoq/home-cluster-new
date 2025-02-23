@@ -32,10 +32,10 @@ argo-cd:
         type: helm
         name: ollama
         url: https://otwld.github.io/ollama-helm/
-      zigbee2mqtt-helm-repo:
-        type: helm
-        name: zigbee2mqtt
-        url: https://charts.zigbee2mqtt.io/
+      # zigbee2mqtt-helm-repo:
+      #   type: helm
+      #   name: zigbee2mqtt
+      #   url: https://charts.zigbee2mqtt.io/
     cm:
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
