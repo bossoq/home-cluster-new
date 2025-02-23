@@ -40,7 +40,7 @@ spec:
         - name: statefulset.spec.serviceName
           value: "zigbee2mqtt"
         - name: zigbee2mqtt.advanced.last_seen
-          value: "enable"
+          value: "ISO_8601"
         - name: zigbee2mqtt.mqtt.server
           value: "mqtt://10.1.3.1:1883"
         - name: zigbee2mqtt.timezone
