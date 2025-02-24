@@ -14,4 +14,8 @@ spec:
       targetPort: 8081
       name: homeassistant
       protocol: TCP
+    - port: 8082
+      targetPort: 8082
+      name: ups
+      protocol: TCP
   type: ClusterIP
