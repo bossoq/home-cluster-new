@@ -1,3 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zigbee2mqtt-data
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /rpool/home-cluster/zigbee2mqtt
+    server: 10.1.1.99
+    readOnly: false
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -17,6 +33,8 @@ spec:
     # chart: zigbee2mqtt
     helm:
       parameters:
+        - name: image.tag
+          value: "2.1.1"
         - name: ingress.enabled
           value: "true"
         - name: ingress.hosts[0].host
@@ -33,16 +51,28 @@ spec:
           value: "zigbee2mqtt-tls"
         - name: ingress.tls[0].hosts[0]
           value: "zigbee2mqtt.picturo.us"
+        - name: statefulset.secrets.name
+          value: "zigbee2mqtt-secrets"
         - name: statefulset.storage.enabled
           value: "true"
-        - name: statefulset.storage.storageClassName
-          value: "nfs-client"
+        - name: statefulset.storage.existingVolume
+          value: "zigbee2mqtt-data"
+        # - name: statefulset.storage.storageClassName
+        #   value: "nfs-client"
         - name: statefulset.spec.serviceName
           value: "zigbee2mqtt"
         - name: zigbee2mqtt.advanced.last_seen
           value: "ISO_8601"
+        - name: zigbee2mqtt.advanced.transmit_power
+          value: "20"
+        - name: zigbee2mqtt.homeassistant.enabled
+          value: "true"
+        - name: zigbee2mqtt.homeassistant.legacy_action_sensor
+          value: "false"
+        - name: zigbee2mqtt.homeassistant.status_topic
+          value: "homeassistant/status"
         - name: zigbee2mqtt.mqtt.server
-          value: "mqtt://10.1.3.1:1883"
+          value: "mqtt://mqtt.picturo.us:31883"
         - name: zigbee2mqtt.timezone
           value: "Asia/Bangkok"
   syncPolicy:
