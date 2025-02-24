@@ -85,12 +85,56 @@ spec:
           value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
         - name: zigbee2mqtt.advanced.last_seen
           value: "ISO_8601"
-        - name: zigbee2mqtt.advanced.network_key
-          value: "166,131,249,27,126,136,170,240,151,89,208,154,25,98,77,122"
+        - name: zigbee2mqtt.advanced.network_key[0]
+          value: "166"
+        - name: zigbee2mqtt.advanced.network_key[1]
+          value: "131"
+        - name: zigbee2mqtt.advanced.network_key[2]
+          value: "249"
+        - name: zigbee2mqtt.advanced.network_key[3]
+          value: "27"
+        - name: zigbee2mqtt.advanced.network_key[4]
+          value: "126"
+        - name: zigbee2mqtt.advanced.network_key[5]
+          value: "136"
+        - name: zigbee2mqtt.advanced.network_key[6]
+          value: "170"
+        - name: zigbee2mqtt.advanced.network_key[7]
+          value: "240"
+        - name: zigbee2mqtt.advanced.network_key[8]
+          value: "151"
+        - name: zigbee2mqtt.advanced.network_key[9]
+          value: "89"
+        - name: zigbee2mqtt.advanced.network_key[10]
+          value: "208"
+        - name: zigbee2mqtt.advanced.network_key[11]
+          value: "154"
+        - name: zigbee2mqtt.advanced.network_key[12]
+          value: "25"
+        - name: zigbee2mqtt.advanced.network_key[13]
+          value: "98"
+        - name: zigbee2mqtt.advanced.network_key[14]
+          value: "77"
+        - name: zigbee2mqtt.advanced.network_key[15]
+          value: "122"
         - name: zigbee2mqtt.advanced.pan_id
           value: "45248"
-        - name: zigbee2mqtt.advanced.ext_pan_id
-          value: "81,44,205,196,4,116,232,176"
+        - name: zigbee2mqtt.advanced.ext_pan_id[0]
+          value: "81"
+        - name: zigbee2mqtt.advanced.ext_pan_id[1]
+          value: "44"
+        - name: zigbee2mqtt.advanced.ext_pan_id[2]
+          value: "205"
+        - name: zigbee2mqtt.advanced.ext_pan_id[3]
+          value: "196"
+        - name: zigbee2mqtt.advanced.ext_pan_id[4]
+          value: "4"
+        - name: zigbee2mqtt.advanced.ext_pan_id[5]
+          value: "116"
+        - name: zigbee2mqtt.advanced.ext_pan_id[6]
+          value: "232"
+        - name: zigbee2mqtt.advanced.ext_pan_id[7]
+          value: "176"
         - name: zigbee2mqtt.advanced.transmit_power
           value: "20"
         - name: zigbee2mqtt.homeassistant.enabled
