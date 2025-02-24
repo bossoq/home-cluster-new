@@ -25,8 +25,7 @@ metadata:
   name: zigbee2mqtt-secrets
   namespace: argocd
 type: Opaque
-data:
-  secrets.yaml: "{{ .Values.secrets.ZIGBEE2MQTT_SECRETS | b64enc }}"
+data: "{{ .Values.secrets.ZIGBEE2MQTT_SECRETS | b64enc }}"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
