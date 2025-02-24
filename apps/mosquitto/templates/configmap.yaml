@@ -9,6 +9,17 @@ data:
     persistence_location /mosquitto/data/
     log_dest stdout
     
+    # Password file
+    password_file /mosquitto/config/password.txt
+
     # MQTT listener
-    allow_anonymous true
+    allow_anonymous false
     listener 1883
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mosquitto-password
+data:
+  password.txt: |
+    kittipos:$7$101$2MJs/diky4wf8ue2$fzR/EKzuYKrrJMjKFuEcpS/tbGqZk7DTc/oSihXHfBf+fcfU4gTw0WP+ZLkbzB0+z2/BHtdY1qwtWF8vVTz3sw==
