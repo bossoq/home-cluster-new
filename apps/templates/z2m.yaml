@@ -75,6 +75,14 @@ spec:
           value: "nfs-client"
         - name: statefulset.spec.serviceName
           value: "zigbee2mqtt"
+        - name: statefulset.volumeMounts[0].mountPath
+          value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
+        - name: statefulset.volumeMounts[0].name
+          value: "serial-device"
+        - name: statefulset.volumes[0].name
+          value: "serial-device"
+        - name: statefulset.volumes[0].hostPath.path
+          value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
         - name: zigbee2mqtt.advanced.last_seen
           value: "ISO_8601"
         - name: zigbee2mqtt.advanced.transmit_power
