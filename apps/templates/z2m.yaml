@@ -25,7 +25,8 @@ metadata:
   name: zigbee2mqtt-secrets
   namespace: argocd
 type: Opaque
-data: "{{ .Values.secrets.ZIGBEE2MQTT_SECRETS | b64enc }}"
+data:
+  secret.yaml: "{{ .Values.secrets.ZIGBEE2MQTT_SECRETS | b64enc }}"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -64,8 +65,6 @@ spec:
           value: "zigbee2mqtt-tls"
         - name: ingress.tls[0].hosts[0]
           value: "zigbee2mqtt.picturo.us"
-        - name: statefulset.secrets.name
-          value: "zigbee2mqtt-secrets"
         - name: statefulset.storage.enabled
           value: "true"
         - name: statefulset.storage.existingVolume
@@ -78,10 +77,18 @@ spec:
           value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
         - name: statefulset.volumeMounts[0].name
           value: "serial-device"
+        - name: statefulset.volumeMounts[1].mountPath
+          value: "/app/data"
+        - name: statefulset.volumeMounts[1].name
+          value: "zigbee2mqtt-secrets"
         - name: statefulset.volumes[0].name
           value: "serial-device"
         - name: statefulset.volumes[0].hostPath.path
           value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
+        - name: statefulset.volumes[0].name
+          value: "zigbee2mqtt-secrets"
+        - name: statefulset.volumes[0].secret.secretName
+          value: "zigbee2mqtt-secrets"
         - name: zigbee2mqtt.advanced.last_seen
           value: "ISO_8601"
         - name: zigbee2mqtt.advanced.network_key[0]
