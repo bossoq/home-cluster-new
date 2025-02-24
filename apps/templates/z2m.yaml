@@ -81,6 +81,8 @@ spec:
           value: "/app/data"
         - name: statefulset.volumeMounts[1].name
           value: "zigbee2mqtt-secrets"
+        - name: statefulset.volumeMounts[1].readOnly
+          value: "true"
         - name: statefulset.volumes[0].name
           value: "serial-device"
         - name: statefulset.volumes[0].hostPath.path
