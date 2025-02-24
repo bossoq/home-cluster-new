@@ -27,9 +27,6 @@ spec:
               name: config
             - mountPath: /mosquitto/data/
               name: data
-            - mountPath: /mosquitto/config/password.txt
-              subPath: password.txt
-              name: mosquitto-password
       volumes:
       - name: config
         configMap:
@@ -37,6 +34,3 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: mosquitto-data
-      - name: mosquitto-password
-        configMap:
-          name: mosquitto-password
