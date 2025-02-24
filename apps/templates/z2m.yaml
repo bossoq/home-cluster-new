@@ -134,6 +134,10 @@ spec:
           value: "homeassistant/status"
         - name: zigbee2mqtt.mqtt.server
           value: "mqtt://mqtt.picturo.us:31883"
+        - name: zigbee2mqtt.mqtt.user
+          value: "!secret.yaml user"
+        - name: zigbee2mqtt.mqtt.password
+          value: "!secret.yaml password"
         - name: zigbee2mqtt.serial.adapter
           value: "zstack"
         - name: zigbee2mqtt.serial.port
