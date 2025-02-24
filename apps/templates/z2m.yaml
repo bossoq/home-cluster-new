@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: zigbee2mqtt-data
 spec:
-  storageClassName: ""
+  storageClassName: "nfs-client"
   capacity:
     storage: 1Gi
   accessModes:
@@ -56,8 +56,8 @@ spec:
           value: "true"
         - name: statefulset.storage.existingVolume
           value: "zigbee2mqtt-data"
-        # - name: statefulset.storage.storageClassName
-        #   value: "nfs-client"
+        - name: statefulset.storage.storageClassName
+          value: "nfs-client"
         - name: statefulset.spec.serviceName
           value: "zigbee2mqtt"
         - name: zigbee2mqtt.advanced.last_seen
