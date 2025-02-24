@@ -51,15 +51,17 @@ spec:
         - name: ingress.hosts[0].paths[0].path
           value: "/"
         - name: ingress.hosts[0].paths[0].pathType
-          value: "ImplementationSpecific"
+          value: "Prefix"
         - name: ingress.hosts[0].paths[1].path
           value: "/api"
         - name: ingress.hosts[0].paths[1].pathType
-          value: "ImplementationSpecific"
+          value: "Prefix"
         - name: ingress.tls[0].secretName
           value: "zigbee2mqtt-tls"
         - name: ingress.tls[0].hosts[0]
           value: "zigbee2mqtt.picturo.us"
+        - name: service.type
+          value: "ClusterIP"
         - name: statefulset.storage.enabled
           value: "true"
         - name: statefulset.storage.existingVolume
