@@ -85,6 +85,12 @@ spec:
           value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
         - name: zigbee2mqtt.advanced.last_seen
           value: "ISO_8601"
+        - name: zigbee2mqtt.advanced.network_key
+          value: "166,131,249,27,126,136,170,240,151,89,208,154,25,98,77,122"
+        - name: zigbee2mqtt.advanced.pan_id
+          value: "45248"
+        - name: zigbee2mqtt.advanced.ext_pan_id
+          value: "81,44,205,196,4,116,232,176"
         - name: zigbee2mqtt.advanced.transmit_power
           value: "20"
         - name: zigbee2mqtt.homeassistant.enabled
