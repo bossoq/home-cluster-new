@@ -3,6 +3,8 @@ kind: PersistentVolume
 metadata:
   name: zigbee2mqtt-data
   namespace: argocd
+  labels:
+    argocd.argoproj.io/instance: zigbee2mqtt
 spec:
   storageClassName: "nfs-client"
   capacity:
