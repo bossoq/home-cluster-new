@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: homeassistant
+spec:
+  serviceName: homeassistant
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      annotations:
+        checksum/configuration: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      labels:
+        app: homeassistant
+    spec:
+      hostNetwork: true
+      containers:
+        - name: homeassistant
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          ports:
+            - containerPort: 8123
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config/
+              name: config
+            - mountPath: /etc/localtime
+              name: localtime
+              readOnly: true
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: homeassistant-config
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+          type: FileOrCreate
