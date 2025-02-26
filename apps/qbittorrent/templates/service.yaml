@@ -6,8 +6,8 @@ spec:
   selector:
     app: qbittorrent
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 9091
+      targetPort: 9091
       name: http
       protocol: TCP
   type: ClusterIP
