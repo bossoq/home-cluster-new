@@ -9,9 +9,9 @@ spec:
   tls:
     - secretName: homeassistant-tls
       hosts:
-        - testhomeassistant.picturo.us
+        - smarthome.picturo.us
   rules:
-    - host: testhomeassistant.picturo.us
+    - host: smarthome.picturo.us
       http:
         paths:
           - path: /
