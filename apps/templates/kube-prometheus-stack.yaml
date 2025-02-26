@@ -29,20 +29,6 @@ spec:
           value: "grafana-tls"
         - name: grafana.ingress.tls[0].hosts[0]
           value: "grafana.picturo.us"
-        - name: prometheus.ingress.enabled
-          value: "true"
-        - name: prometheus.ingress.annotations.kubernetes\.io/ingress\.class
-          value: "traefik"
-        - name: prometheus.ingress.annotations.cert-manager\.io/cluster-issuer
-          value: "letsencrypt-prod"
-        - name: prometheus.ingress.ingressClassName
-          value: "traefik"
-        - name: prometheus.ingress.hosts[0]
-          value: "prometheus.picturo.us"
-        - name: prometheus.ingress.tls[0].secretName
-          value: "prometheus-tls"
-        - name: prometheus.ingress.tls[0].hosts[0]
-          value: "prometheus.picturo.us"
   syncPolicy:
     automated:
       prune: true
