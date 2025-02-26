@@ -10,8 +10,8 @@ spec:
       app: homeassistant
   template:
     metadata:
-      annotations:
-        checksum/configuration: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      # annotations:
+      #   checksum/configuration: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
         app: homeassistant
     spec:
