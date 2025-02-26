@@ -27,16 +27,16 @@ spec:
                 name: nginx-service
                 port:
                   number: 8080
-    - host: smarthome.picturo.us
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 8081
+    # - host: smarthome.picturo.us
+    #   http:
+    #     paths:
+    #       - path: /
+    #         pathType: Prefix
+    #         backend:
+    #           service:
+    #             name: nginx-service
+    #             port:
+    #               number: 8081
     - host: ups.picturo.us
       http:
         paths:
