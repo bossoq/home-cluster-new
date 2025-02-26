@@ -36,6 +36,10 @@ argo-cd:
         type: helm
         name: zigbee2mqtt
         url: https://charts.zigbee2mqtt.io/
+      prometheus-community-helm-repo:
+        type: helm
+        name: prometheus-community
+        url: https://prometheus-community.github.io/helm-charts/
     cm:
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
