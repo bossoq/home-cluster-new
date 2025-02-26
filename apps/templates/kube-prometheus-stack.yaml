@@ -39,8 +39,6 @@ spec:
           value: "traefik"
         - name: prometheus.ingress.hosts[0]
           value: "prometheus.picturo.us"
-        - name: prometheus.ingress.paths[0]
-          value: "/"
         - name: prometheus.ingress.tls[0].secretName
           value: "prometheus-tls"
         - name: prometheus.ingress.tls[0].hosts[0]
