@@ -22,11 +22,11 @@ spec:
         - name: ingress.annotations.cert-manager\.io/cluster-issuer
           value: "letsencrypt-prod"
         - name: ingress.hosts[0]
-          value: "prometheus.picturo.us"
+          value: "grafana.picturo.us"
         - name: ingress.tls[0].secretName
-          value: "prometheus-tls"
+          value: "grafana-tls"
         - name: ingress.tls[0].hosts[0]
-          value: "prometheus.picturo.us"
+          value: "grafana.picturo.us"
   syncPolicy:
     automated:
       prune: true
