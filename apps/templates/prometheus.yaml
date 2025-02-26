@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: "{{ .Values.spec.destination.server }}"
+  project: default
+  source:
+    path: ""
+    repoURL: "https://prometheus-community.github.io/helm-charts/"
+    targetRevision: "25.22.0"
+    chart: prometheus
+    helm:
+      parameters:
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.annotations.kubernetes\.io/ingress\.class
+          value: "traefik"
+        - name: ingress.annotations.cert-manager\.io/cluster-issuer
+          value: "letsencrypt-prod"
+        - name: ingress.hosts[0]
+          value: "prometheus.picturo.us"
+        - name: ingress.tls[0].secretName
+          value: "prometheus-tls"
+        - name: ingress.tls[0].hosts[0]
+          value: "prometheus.picturo.us"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
