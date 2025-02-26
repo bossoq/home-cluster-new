@@ -15,17 +15,17 @@ spec:
     chart: prometheus
     helm:
       parameters:
-        - name: ingress.enabled
+        - name: server.ingress.enabled
           value: "true"
-        - name: ingress.annotations.kubernetes\.io/ingress\.class
+        - name: server.ingress.annotations.kubernetes\.io/ingress\.class
           value: "traefik"
-        - name: ingress.annotations.cert-manager\.io/cluster-issuer
+        - name: server.ingress.annotations.cert-manager\.io/cluster-issuer
           value: "letsencrypt-prod"
-        - name: ingress.hosts[0]
+        - name: server.ingress.hosts[0]
           value: "prometheus.picturo.us"
-        - name: ingress.tls[0].secretName
+        - name: server.ingress.tls[0].secretName
           value: "prometheus-tls"
-        - name: ingress.tls[0].hosts[0]
+        - name: server.ingress.tls[0].hosts[0]
           value: "prometheus.picturo.us"
   syncPolicy:
     automated:
