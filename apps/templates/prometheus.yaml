@@ -27,6 +27,8 @@ spec:
           value: "prometheus-tls"
         - name: ingress.tls[0].hosts[0]
           value: "prometheus.picturo.us"
+        - name: prometheus-node-exporter.kubeRBACProxy.enableHostPort
+          value: "false"
   syncPolicy:
     automated:
       prune: true
