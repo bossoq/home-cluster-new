@@ -108,7 +108,7 @@ data:
     ingress:
       # The first rule proxies traffic to the nginx sample Service defined in app.yaml
       - hostname: smarthome.picturo.us
-        service: http://10.1.3.1:8123
+        service: https://smarthome.picturo.us
 
       # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
       # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is
