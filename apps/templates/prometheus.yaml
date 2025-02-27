@@ -1,3 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prometheus-community/helm-charts/ef068710d1c6182e1d8f15eabe6c83911c6a0114/charts/prometheus/values.schema.json
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-data
+  namespace: argocd
+  labels:
+    instance: prometheus
+    app: prometheus
+    chart: prometheus
+    release: prometheus
+spec:
+  storageClassName: "nfs-client"
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: /rpool/home-cluster/prometheus-data
+    server: 10.1.1.99
+    readOnly: false
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prometheus-community/helm-charts/ef068710d1c6182e1d8f15eabe6c83911c6a0114/charts/prometheus/values.schema.json
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -27,6 +50,10 @@ spec:
           value: "prometheus-tls"
         - name: server.ingress.tls[0].hosts[0]
           value: "prometheus.picturo.us"
+        - name: server.persistentVolume.enabled
+          value: "true"
+        - name: server.persistentVolume.existingClaim
+          value: "prometheus-data"
         - name: prometheus-node-exporter.hostNetwork
           value: "false"
   syncPolicy:

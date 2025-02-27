@@ -1,3 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: grafana-data
+  namespace: argocd
+  labels:
+    instance: grafana
+    app: grafana
+    chart: grafana
+    release: grafana
+spec:
+  storageClassName: "nfs-client"
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: /rpool/home-cluster/grafana-data
+    server: 10.1.1.99
+    readOnly: false
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -27,6 +48,10 @@ spec:
           value: "grafana-tls"
         - name: ingress.tls[0].hosts[0]
           value: "grafana.picturo.us"
+        - name: persistence.enabled
+          value: "true"
+        - name: persistence.existingClaim
+          value: "grafana-data"
   syncPolicy:
     automated:
       prune: true
