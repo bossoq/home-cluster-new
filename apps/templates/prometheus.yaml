@@ -71,6 +71,12 @@ spec:
           value: "prometheus-data"
         - name: prometheus-node-exporter.hostNetwork
           value: "false"
+        - name: extraScrapeConfigs
+          value: |
+            - job_name: 'traefik'
+              metrics_path: '/metrics'
+              static_configs:
+                - targets: ['traefik:8080']
   syncPolicy:
     automated:
       prune: true
