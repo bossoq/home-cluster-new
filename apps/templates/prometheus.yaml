@@ -26,7 +26,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: prometheus-data
 spec:
-  storageClassName: ""
+  storageClassName: "nfs-client"
   volumeName: prometheus-data
   accessModes:
     - ReadWriteOnce

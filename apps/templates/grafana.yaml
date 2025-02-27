@@ -24,7 +24,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: grafana-data
 spec:
-  storageClassName: ""
+  storageClassName: "nfs-client"
   volumeName: grafana-data
   accessModes:
     - ReadWriteOnce
