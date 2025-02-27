@@ -13,10 +13,6 @@ spec:
     repoURL: "https://nvidia.github.io/dcgm-exporter/helm-charts/"
     targetRevision: "4.0.4"
     chart: dcgm-exporter
-    helm:
-      parameters:
-        - name: arguments
-          value: "[\"-c\", \"1000\"]"
   syncPolicy:
     automated:
       prune: true
