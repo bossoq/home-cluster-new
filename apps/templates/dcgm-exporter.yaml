@@ -13,6 +13,10 @@ spec:
     repoURL: "https://nvidia.github.io/dcgm-exporter/helm-charts/"
     targetRevision: "4.0.4"
     chart: dcgm-exporter
+    helm:
+      parameters:
+        - name: runtimeClassName
+          value: nvidia
   syncPolicy:
     automated:
       prune: true
