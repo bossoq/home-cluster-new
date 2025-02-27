@@ -15,10 +15,8 @@ spec:
     chart: dcgm-exporter
     helm:
       parameters:
-        - name: arguments[0]
-          value: "-c"
-        - name: arguments[1]
-          value: "1000"
+        - name: arguments
+          value: ["-c", "1000"]
   syncPolicy:
     automated:
       prune: true
