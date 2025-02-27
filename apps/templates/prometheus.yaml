@@ -21,6 +21,21 @@ spec:
     readOnly: false
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/prometheus-community/helm-charts/ef068710d1c6182e1d8f15eabe6c83911c6a0114/charts/prometheus/values.schema.json
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-data
+spec:
+  storageClassName: ""
+  volumeName: prometheus-data
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 8Gi
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prometheus-community/helm-charts/ef068710d1c6182e1d8f15eabe6c83911c6a0114/charts/prometheus/values.schema.json
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
