@@ -44,6 +44,10 @@ argo-cd:
         type: helm
         name: grafana
         url: https://grafana.github.io/helm-charts/
+      gpu-helm-charts-helm-repo:
+        type: helm
+        name: gpu-helm-charts
+        url: https://nvidia.github.io/dcgm-exporter/helm-charts/
     cm:
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,

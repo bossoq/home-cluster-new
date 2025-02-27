@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dcgm-exporter
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: "{{ .Values.spec.destination.server }}"
+  project: default
+  source:
+    path: ""
+    repoURL: "https://nvidia.github.io/dcgm-exporter/helm-charts/"
+    targetRevision: "4.0.4"
+    chart: dcgm-exporter
+    helm:
+      parameters:
+        - name: arguments[0]
+          value: "-c"
+        - name: arguments[1]
+          value: "1000"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
