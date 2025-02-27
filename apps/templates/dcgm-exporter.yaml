@@ -16,7 +16,7 @@ spec:
     helm:
       parameters:
         - name: arguments
-          value: ["-c", "1000"]
+          value: "[\"-c\", \"1000\"]"
   syncPolicy:
     automated:
       prune: true
