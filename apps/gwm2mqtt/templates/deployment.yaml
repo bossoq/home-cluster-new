@@ -22,7 +22,7 @@ spec:
       containers:
         - env:
           - name: REFRESH_INTERVAL
-            value: 15
+            value: "15"
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           name: gwm2mqtt
