@@ -1,0 +1,3 @@
+apiVersion: v2
+name: gwm2mqtt
+version: 1.0.0

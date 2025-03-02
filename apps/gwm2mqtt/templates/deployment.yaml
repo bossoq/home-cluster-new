@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gwm2mqtt
+  labels:
+    app: gwm2mqtt
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: gwm2mqtt
+  template:
+    metadata:
+      labels:
+        app: gwm2mqtt
+    spec:
+      containers:
+        - env:
+          - name: REFRESH_INTERVAL
+            value: 15
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: gwm2mqtt
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - mountPath: /usr/src/app/data
+              name: gwm2mqtt-data
+      volumes:
+        - name: gwm2mqtt-data
+          persistentVolumeClaim:
+            claimName: gwm2mqtt-data
+      restartPolicy: Always
