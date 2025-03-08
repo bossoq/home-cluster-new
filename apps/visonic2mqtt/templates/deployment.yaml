@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visonic2mqtt
+  labels:
+    app: visonic2mqtt
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: visonic2mqtt
+  template:
+    metadata:
+      labels:
+        app: visonic2mqtt
+    spec:
+      imagePullSecrets:
+        - name: dockerconfigjson-ghcr
+      containers:
+        - env:
+          - name: REFRESH_INTERVAL
+            value: "10"
+          - name: BASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: visonic2mqtt-secret
+                key: base_url
+          - name: EMAIL
+            valueFrom:
+              secretKeyRef:
+                name: visonic2mqtt-secret
+                key: email
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: visonic2mqtt-secret
+                key: password
+          - name: PANEL_ID
+            valueFrom:
+              secretKeyRef:
+                name: visonic2mqtt-secret
+                key: panel_id
+          - name: USERCODE
+            valueFrom:
+              secretKeyRef:
+                name: visonic2mqtt-secret
+                key: usercode
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: visonic2mqtt
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - mountPath: /usr/src/app/data
+              name: visonic2mqtt-data
+      volumes:
+        - name: visonic2mqtt-data
+          persistentVolumeClaim:
+            claimName: visonic2mqtt-data
+      restartPolicy: Always
