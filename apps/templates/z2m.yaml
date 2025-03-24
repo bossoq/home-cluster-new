@@ -39,7 +39,7 @@ spec:
     helm:
       parameters:
         - name: image.tag
-          value: "2.1.1"
+          value: "2.1.3"
         - name: ingress.annotations.kubernetes\.io/ingress\.class
           value: "traefik"
         - name: ingress.annotations.cert-manager\.io/cluster-issuer
@@ -154,6 +154,12 @@ spec:
           value: "/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_087f4397a6c8eb1181a3c4c3de5b81b4-if00-port0"
         - name: zigbee2mqtt.timezone
           value: "Asia/Bangkok"
+        - name: zigbee2mqtt.availability.enabled
+          value: "true"
+        - name: zigbee2mqtt.availability.active.timeout
+          value: "10"
+        - name: zigbee2mqtt.availability.passive.timeout
+          value: "1500"
   syncPolicy:
     automated:
       prune: true
