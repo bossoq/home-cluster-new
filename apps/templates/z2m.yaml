@@ -152,6 +152,10 @@ spec:
           value: "zstack"
         - name: zigbee2mqtt.serial.port
           value: "tcp://10.1.1.222:6638"
+        - name: zigbee2mqtt.serial.baudrate
+          value: "115200"
+        - name: zigbee2mqtt.serial.disable_led
+          value: "true"
         - name: zigbee2mqtt.timezone
           value: "Asia/Bangkok"
         - name: zigbee2mqtt.availability.enabled
