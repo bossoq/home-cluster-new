@@ -21,8 +21,8 @@ spec:
   selector:
     app: homeassistant
   ports:
-  - port: 9000
-    targetPort: 9000
+  - port: 30090
+    targetPort: 30090
     nodePort: 30090
     name: websocket
     protocol: TCP
