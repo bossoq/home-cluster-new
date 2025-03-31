@@ -11,3 +11,18 @@ spec:
     targetPort: 8123
     name: http
     protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassistant-ws
+spec:
+  type: NodePort
+  selector:
+    app: homeassistant
+  ports:
+  - port: 9000
+    targetPort: 9000
+    nodePort: 30090
+    name: websocket
+    protocol: TCP

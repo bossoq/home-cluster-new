@@ -23,6 +23,8 @@ spec:
           ports:
             - containerPort: 8123
               protocol: TCP
+            - containerPort: 9000
+              protocol: TCP
           volumeMounts:
             - mountPath: /config/
               name: config
