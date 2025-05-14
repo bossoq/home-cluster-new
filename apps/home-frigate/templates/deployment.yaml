@@ -33,6 +33,11 @@ spec:
             value: yolov7-tiny-416
           - name: USE_FP16
             value: "true"
+          - name: PLUS_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: plus-api-key
+                name: home-frigate-secret
           securityContext:
             privileged: true
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
