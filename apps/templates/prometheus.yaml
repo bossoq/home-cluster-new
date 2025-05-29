@@ -97,7 +97,7 @@ spec:
               metrics_path: '/metrics'
               static_configs:
                 - targets: ['jellyfin-tcp:8096']
-              scheme: https
+              scheme: http
   syncPolicy:
     automated:
       prune: true
