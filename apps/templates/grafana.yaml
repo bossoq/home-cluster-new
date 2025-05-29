@@ -4,8 +4,8 @@ metadata:
   name: grafana-admin-credentials
 type: Opaque
 data:
-  admin-user: "{{ .Values.secrets.GRAFANA_ADMIN_CREDENTIALS.admin-user | b64enc }}"
-  admin-password: "{{ .Values.secrets.GRAFANA_ADMIN_CREDENTIALS.admin-password | b64enc }}"
+  admin-user: "{{ .Values.secrets.GRAFANA_ADMIN_USERNAME | b64enc }}"
+  admin-password: "{{ .Values.secrets.GRAFANA_ADMIN_PASSWORD | b64enc }}"
 ---
 apiVersion: v1
 kind: PersistentVolume
