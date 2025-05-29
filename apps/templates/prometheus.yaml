@@ -96,7 +96,7 @@ spec:
             - job_name: 'jellyfin'
               metrics_path: '/metrics'
               static_configs:
-                - targets: ['plexserver.picturo.us:443']
+                - targets: ['jellyfin-tcp:8096']
               scheme: https
   syncPolicy:
     automated:
